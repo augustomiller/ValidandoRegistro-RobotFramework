@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1 (Python 3.9.6 on darwin)" generated="20210813 20:07:30.525" rpa="false" schemaversion="2">
+<suite id="s1" name="Tables" source="/Users/maicmiller/Documents/GitHub/ValidandoRegistro-RobotFramework/web/tests/tables.robot">
+<test id="s1-t1" name="CN-1 Verifica o valor ao inrformar o número da linha">
+<kw name="Nova sessão" library="base" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20210813 20:07:30.886" level="INFO">Opening browser 'chrome' to base url 'https://training-wheels-protocol.herokuapp.com/'.</msg>
+<status status="PASS" starttime="20210813 20:07:30.885" endtime="20210813 20:07:35.634"/>
+</kw>
+<status status="PASS" starttime="20210813 20:07:30.884" endtime="20210813 20:07:35.635"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${url}/tables</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20210813 20:07:35.637" level="INFO">Opening url 'https://training-wheels-protocol.herokuapp.com//tables'</msg>
+<status status="PASS" starttime="20210813 20:07:35.636" endtime="20210813 20:07:36.013"/>
+</kw>
+<kw name="Table Row Should Contain" library="SeleniumLibrary">
+<arg>id:actors</arg>
+<arg>1</arg>
+<arg>@robertdowneyjr</arg>
+<doc>Verifies that table row contains text ``expected``.</doc>
+<status status="PASS" starttime="20210813 20:07:36.013" endtime="20210813 20:07:36.204"/>
+</kw>
+<kw name="Encerra sessão" library="base" type="TEARDOWN">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210813 20:07:36.403" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210813 20:07:36.205" endtime="20210813 20:07:36.403"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210813 20:07:36.403" endtime="20210813 20:07:36.555"/>
+</kw>
+<status status="PASS" starttime="20210813 20:07:36.204" endtime="20210813 20:07:36.555"/>
+</kw>
+<status status="PASS" starttime="20210813 20:07:30.880" endtime="20210813 20:07:36.556"/>
+</test>
+<test id="s1-t2" name="CN-2 Descobre a linha pelo texto chave e valida os demais valores">
+<kw name="Nova sessão" library="base" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20210813 20:07:36.563" level="INFO">Opening browser 'chrome' to base url 'https://training-wheels-protocol.herokuapp.com/'.</msg>
+<status status="PASS" starttime="20210813 20:07:36.562" endtime="20210813 20:07:40.978"/>
+</kw>
+<status status="PASS" starttime="20210813 20:07:36.560" endtime="20210813 20:07:40.979"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${url}/tables</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20210813 20:07:40.981" level="INFO">Opening url 'https://training-wheels-protocol.herokuapp.com//tables'</msg>
+<status status="PASS" starttime="20210813 20:07:40.980" endtime="20210813 20:07:41.329"/>
+</kw>
+<kw name="Get WebElement" library="SeleniumLibrary">
+<var>${target}</var>
+<arg>xpath:.//tr[contains(., '@chadwickboseman')]</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<msg timestamp="20210813 20:07:41.361" level="INFO">${target} = &lt;selenium.webdriver.remote.webelement.WebElement (session="709fdc8ffa119210018e04d6136906c1", element="4e0ef7aa-235a-48f7-a0dd-77cb9fda0aeb")&gt;</msg>
+<status status="PASS" starttime="20210813 20:07:41.330" endtime="20210813 20:07:41.361"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${target.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210813 20:07:41.401" level="INFO">Chadwick Boseman Pantera Negra Vingadores $ 700.000 @chadwickboseman edit delete</msg>
+<status status="PASS" starttime="20210813 20:07:41.361" endtime="20210813 20:07:41.401"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${target.text}</arg>
+<arg>$ 700.000</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20210813 20:07:41.402" endtime="20210813 20:07:41.432"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${target.text}</arg>
+<arg>Pantera Negra</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20210813 20:07:41.432" endtime="20210813 20:07:41.459"/>
+</kw>
+<kw name="Encerra sessão" library="base" type="TEARDOWN">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210813 20:07:41.666" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210813 20:07:41.461" endtime="20210813 20:07:41.666"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210813 20:07:41.666" endtime="20210813 20:07:41.789"/>
+</kw>
+<status status="PASS" starttime="20210813 20:07:41.460" endtime="20210813 20:07:41.789"/>
+</kw>
+<status status="PASS" starttime="20210813 20:07:36.558" endtime="20210813 20:07:41.790"/>
+</test>
+<status status="PASS" starttime="20210813 20:07:30.527" endtime="20210813 20:07:41.794"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Tables">Tables</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
